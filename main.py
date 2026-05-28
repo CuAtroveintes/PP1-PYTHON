@@ -2,9 +2,9 @@ from fastapi import FastAPI, HTTPException, Path, Query, status
 from pydantic import BaseModel, Field
 from typing import Annotated, Optional
 
-app = FastAPI(title="CRUD Juegos de Mesa - Práctico 3")
+app = FastAPI(title="Juegos de Mesa - Práctico 3")
 
-# Validaciones específicas para Juegos de Mesa
+
 IdInt = Annotated[int, Field(gt=0, description="El ID debe ser un entero mayor a 0")]
 NombreStr = Annotated[str, Field(min_length=3, max_length=50, description="El nombre del juego debe tener entre 3 y 50 caracteres")]
 CooperativoBool = Annotated[bool, Field(default=False, description="Indica si el juego es cooperativo o competitivo")]
@@ -20,7 +20,7 @@ class JuegoResponse(JuegoBase):
     pass
 
 
-# Base de datos simulada con la nueva temática
+ 
 db = [
     {"id": 1, "nombre": "Catan", "cooperativo": False},
     {"id": 2, "nombre": "Pandemic", "cooperativo": True}
